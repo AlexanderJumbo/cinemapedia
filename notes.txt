@@ -1,0 +1,18 @@
+Si sale un error que te aparece se debe a un desfase de versiones entre Flutter, 
+Gradle y el Android Gradle Plugin (AGP).
+
+    1 Abre android/gradle/wrapper/gradle-wrapper.properties
+
+        * Cambia gradle-8.3 → gradle-8.7.
+
+    2 Abre android/settings.gradle (o android/build.gradle si tu proyecto es más antiguo)
+
+        * Cambia 8.1.0 → 8.1.1 en el plugin com.android.application.
+
+    3 Borra cachés y vuelve a compilar:
+        flutter clean
+        flutter pub get
+        flutter run
+------------------------------------------------------------------------------
+
+
