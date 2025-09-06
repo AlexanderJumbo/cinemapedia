@@ -15,4 +15,7 @@ Gradle y el Android Gradle Plugin (AGP).
         flutter run
 ------------------------------------------------------------------------------
 
-
+Variables de entorno
+-Flutter por defecto no reconoce los .env, para ello debemos usar algún paquete/librería
+ en este caso usaremos flutter_dotenv, instalar, y agregarlo en el pubspec.yaml,
+ seguir la doc https://pub.dev/packages/flutter_dotenv
