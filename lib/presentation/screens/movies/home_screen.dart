@@ -37,16 +37,18 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
   @override
   Widget build(BuildContext context) {
+
+    final initialLoading = ref.watch(initialLoadingProvider);
+    if(initialLoading) return const FullScreenLoader();
+
     final slideShowMovies = ref.watch(moviesSlideShowProvider);
     final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
     final popularMovies = ref.watch(popularMoviesProvider);
     final upcomingMovies = ref.watch(upcomingMoviesProvider);
     final topRatedMovies = ref.watch(topRatedMoviesProvider);
 
-    return const FullScreenLoader();
-
-    return CustomScrollView(slivers: [
-
+    return CustomScrollView(
+      slivers: [
       const SliverAppBar(
         floating: true,
         flexibleSpace: FlexibleSpaceBar(
@@ -54,7 +56,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
           titlePadding: EdgeInsets.zero,
         ),
       ),
-
+    
       //*delegate: función que crear los widgets dentro de este list
       SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
