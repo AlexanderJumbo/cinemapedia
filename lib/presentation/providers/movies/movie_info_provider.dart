@@ -29,8 +29,8 @@ class MovieMapNotifier extends StateNotifier<Map<String, Movie>>{
   }): super({});
 
   Future<void> loadMovie(String movieId) async{
+    //* Si ya tenemos en memoria un Map con ese id de película, entonces ya no volvemos a hacer la petición
     if(state[movieId] != null) return;
-    print('Realizando la petición HTTP');
     final movie = await getMovie(movieId);
 
     //* Creo un nuevo estado, y coloco el id de la película apuntando a {} de movie en memoria
